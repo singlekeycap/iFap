@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Home: View {
     @Binding var homeTab: Int
+    @Binding var popupVisible: Bool
+    
     var body: some View {
         ZStack {
             VStack {
@@ -18,7 +20,10 @@ struct Home: View {
                 Text("With ❤️ by SingleKeycap")
                     .font(.footnote)
                     .padding(.bottom)
-                Button(action: {homeTab = 1}) {
+                Button(action: {
+                    homeTab = 1
+                    popupVisible = true
+                }) {
                     Text("OnlyFans")
                         .frame(width: 100, height: 40)
                         .foregroundColor(Color.white)
@@ -26,7 +31,10 @@ struct Home: View {
                         .cornerRadius(10)
                 }
                 .padding([.top,.bottom], 5)
-                Button(action: {homeTab = 2}) {
+                Button(action: {
+                    homeTab = 2
+                    popupVisible = true
+                }) {
                     Text("Fansly")
                         .frame(width: 100, height: 40)
                         .foregroundColor(Color.white)
@@ -34,7 +42,10 @@ struct Home: View {
                         .cornerRadius(10)
                 }
                 .padding([.top,.bottom], 5)
-                Button(action: {homeTab = 3}) {
+                Button(action: {
+                    homeTab = 3
+                    popupVisible = true
+                }) {
                     Text("Fapello")
                         .frame(width: 100, height: 40)
                         .foregroundColor(Color.white)
@@ -42,7 +53,10 @@ struct Home: View {
                         .cornerRadius(10)
                 }
                 .padding([.top,.bottom], 5)
-                Button(action: {homeTab = 4}) {
+                Button(action: {
+                    homeTab = 4
+                    popupVisible = true
+                }) {
                     Text("PornHub")
                         .frame(width: 100, height: 40)
                         .foregroundColor(Color.white)

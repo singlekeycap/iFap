@@ -10,40 +10,79 @@ import SwiftUI
 struct ContentView: View {
     @State var selectedTab = 0
     @State var modelName = ""
-    @State private var dragAmount: CGPoint? = CGPoint(x: 40, y: 40)
+    @State var isPopUpViewVisible = false
+    @State var popUpOffset: CGFloat = 0
     
     var body: some View {
-        GeometryReader { gp in
-                ZStack {
-                    switch selectedTab {
-                    case 1:
-                        OnlyFans(modelName: modelName)
-                    case 2:
-                        Fansly(modelName: modelName)
-                    case 3:
-                        FapelloSearch()
-                    case 4:
-                        PornHub(modelName: modelName)
-                    default:
-                        Home(homeTab: $selectedTab)
-                    }
-                Button(action: {
-                    modelName = ""
-                    selectedTab = 0
-                }) {
-                    Image(systemName: "house.fill")
-                        .font(.system(size: 20))
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.accentColor)
-                        .clipShape(Circle())
+        ZStack {
+            Home(homeTab: $selectedTab, popupVisible: $isPopUpViewVisible)
+            if isPopUpViewVisible {
+                let popUpThreshold: CGFloat = 100
+                if selectedTab == 1 {
+                    OnlyFans(modelName: modelName)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .offset(y: popUpOffset)
+                        .gesture(
+                            DragGesture()
+                            .onChanged { gesture in
+                                popUpOffset = gesture.translation.height
+                            }
+                            .onEnded { gesture in
+                                if gesture.translation.height > popUpThreshold {
+                                    isPopUpViewVisible = false
+                                }
+                                popUpOffset = 0
+                            }
+                        )
+                } else if selectedTab == 2 {
+                    Fansly(modelName: modelName)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .offset(y: popUpOffset)
+                        .gesture(
+                            DragGesture()
+                            .onChanged { gesture in
+                                popUpOffset = gesture.translation.height
+                            }
+                            .onEnded { gesture in
+                                if gesture.translation.height > popUpThreshold {
+                                    isPopUpViewVisible = false
+                                }
+                                popUpOffset = 0
+                            }
+                        )
+                } else if selectedTab == 3 {
+                    FapelloSearch()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .offset(y: popUpOffset)
+                        .gesture(
+                            DragGesture()
+                            .onChanged { gesture in
+                                popUpOffset = gesture.translation.height
+                            }
+                            .onEnded { gesture in
+                                if gesture.translation.height > popUpThreshold {
+                                    isPopUpViewVisible = false
+                                }
+                                popUpOffset = 0
+                            }
+                        )
+                } else if selectedTab == 4{
+                    PornHub(modelName: modelName)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .offset(y: popUpOffset)
+                        .gesture(
+                            DragGesture()
+                            .onChanged { gesture in
+                                popUpOffset = gesture.translation.height
+                            }
+                            .onEnded { gesture in
+                                if gesture.translation.height > popUpThreshold {
+                                    isPopUpViewVisible = false
+                                }
+                                popUpOffset = 0
+                            }
+                        )
                 }
-                .animation(.default, value: dragAmount)
-                .position(self.dragAmount ?? CGPoint(x: gp.size.width / 2, y: gp.size.height / 2))
-                .highPriorityGesture(
-                    DragGesture()
-                        .onChanged {self.dragAmount = $0.location}
-                )
             }
         }
         .onOpenURL {inputURL in
