@@ -21,28 +21,6 @@ struct Home: View {
                     .font(.footnote)
                     .padding(.bottom)
                 Button(action: {
-                    homeTab = 1
-                    popupVisible = true
-                }) {
-                    Text("OnlyFans")
-                        .frame(width: 100, height: 40)
-                        .foregroundColor(Color.white)
-                        .background(Color.accentColor)
-                        .cornerRadius(10)
-                }
-                .padding([.top,.bottom], 5)
-                Button(action: {
-                    homeTab = 2
-                    popupVisible = true
-                }) {
-                    Text("Fansly")
-                        .frame(width: 100, height: 40)
-                        .foregroundColor(Color.white)
-                        .background(Color.accentColor)
-                        .cornerRadius(10)
-                }
-                .padding([.top,.bottom], 5)
-                Button(action: {
                     homeTab = 3
                     popupVisible = true
                 }) {
@@ -58,6 +36,28 @@ struct Home: View {
                     popupVisible = true
                 }) {
                     Text("PornHub")
+                        .frame(width: 100, height: 40)
+                        .foregroundColor(Color.white)
+                        .background(Color.accentColor)
+                        .cornerRadius(10)
+                }
+                .padding([.top,.bottom], 5)
+                Button(action: {
+                    homeTab = 1
+                    popupVisible = true
+                }) {
+                    Text("OnlyFans")
+                        .frame(width: 100, height: 40)
+                        .foregroundColor(Color.white)
+                        .background(Color.accentColor)
+                        .cornerRadius(10)
+                }
+                .padding([.top,.bottom], 5)
+                Button(action: {
+                    homeTab = 2
+                    popupVisible = true
+                }) {
+                    Text("Fansly")
                         .frame(width: 100, height: 40)
                         .foregroundColor(Color.white)
                         .background(Color.accentColor)

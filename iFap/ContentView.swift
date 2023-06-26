@@ -30,6 +30,7 @@ struct ContentView: View {
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
                                     isPopUpViewVisible = false
+                                    modelName = ""
                                 }
                                 popUpOffset = 0
                             }
@@ -46,6 +47,7 @@ struct ContentView: View {
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
                                     isPopUpViewVisible = false
+                                    modelName = ""
                                 }
                                 popUpOffset = 0
                             }
@@ -62,6 +64,7 @@ struct ContentView: View {
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
                                     isPopUpViewVisible = false
+                                    modelName = ""
                                 }
                                 popUpOffset = 0
                             }
@@ -78,6 +81,7 @@ struct ContentView: View {
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
                                     isPopUpViewVisible = false
+                                    modelName = ""
                                 }
                                 popUpOffset = 0
                             }
@@ -91,14 +95,17 @@ struct ContentView: View {
                 modelURL = String(modelURL.dropFirst(11))
                 modelName = modelURL
                 selectedTab = 1
+                isPopUpViewVisible = true
             } else if modelURL.hasPrefix("fansly://") {
                 modelURL = String(modelURL.dropFirst(9))
                 modelName = modelURL
                 selectedTab = 2
+                isPopUpViewVisible = true
             } else if modelURL.hasPrefix("pornhub://") {
                 modelURL = String(modelURL.dropFirst(10))
                 modelName = modelURL
                 selectedTab = 4
+                isPopUpViewVisible = true
             }
         }
     }

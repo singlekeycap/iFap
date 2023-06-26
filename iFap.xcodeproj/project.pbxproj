@@ -11,6 +11,7 @@
 		313BB9802A42ABAC00B3B545 /* FapelloModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313BB97F2A42ABAC00B3B545 /* FapelloModel.swift */; };
 		314C9E782A465408008ED5D7 /* FapelloImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C9E772A465408008ED5D7 /* FapelloImage.swift */; };
 		3177A4322A425EE70083BC51 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3177A4312A425EE70083BC51 /* SDWebImageSwiftUI */; };
+		31D6CCEE2A4917B0009441A7 /* CoomerSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */; };
 		31DEC38B29EA4BBC00B12906 /* iFapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC38A29EA4BBC00B12906 /* iFapApp.swift */; };
 		31DEC38D29EA4BBC00B12906 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC38C29EA4BBC00B12906 /* ContentView.swift */; };
 		31DEC38F29EA4BBD00B12906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DEC38E29EA4BBD00B12906 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		313BB97F2A42ABAC00B3B545 /* FapelloModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FapelloModel.swift; sourceTree = "<group>"; };
 		314C9E772A465408008ED5D7 /* FapelloImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FapelloImage.swift; sourceTree = "<group>"; };
+		31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoomerSearch.swift; sourceTree = "<group>"; };
 		31D785262A47A2A400A79333 /* iFap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iFap.entitlements; sourceTree = "<group>"; };
 		31DEC38729EA4BBC00B12906 /* iFap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DEC38A29EA4BBC00B12906 /* iFapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFapApp.swift; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 			path = Fapello;
 			sourceTree = "<group>";
 		};
+		31D6CCEC2A49179D009441A7 /* Coomer */ = {
+			isa = PBXGroup;
+			children = (
+				31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */,
+			);
+			path = Coomer;
+			sourceTree = "<group>";
+		};
 		31DEC37E29EA4BBC00B12906 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 				31DEC39F29EB4D0000B12906 /* Fansly.swift */,
 				31DEC39D29EB4CCA00B12906 /* WebViewModel.swift */,
 				31DEC39829EB23DA00B12906 /* Home.swift */,
+				31D6CCEC2A49179D009441A7 /* Coomer */,
 				313BB97C2A42A99900B3B545 /* Fapello */,
 				31DEC3A329EB75D800B12906 /* PornHub.swift */,
 				31DEC38E29EA4BBD00B12906 /* Assets.xcassets */,
@@ -194,6 +205,7 @@
 				313BB9802A42ABAC00B3B545 /* FapelloModel.swift in Sources */,
 				31DEC3A429EB75D900B12906 /* PornHub.swift in Sources */,
 				31DEC39B29EB3E5300B12906 /* OnlyFans.swift in Sources */,
+				31D6CCEE2A4917B0009441A7 /* CoomerSearch.swift in Sources */,
 				314C9E782A465408008ED5D7 /* FapelloImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
