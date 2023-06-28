@@ -87,6 +87,42 @@ struct ContentView: View {
                             }
                         )
                 }
+                else if selectedTab == 5{
+                    CoomerSearch()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .offset(y: popUpOffset)
+                        .gesture(
+                            DragGesture()
+                            .onChanged { gesture in
+                                popUpOffset = gesture.translation.height
+                            }
+                            .onEnded { gesture in
+                                if gesture.translation.height > popUpThreshold {
+                                    isPopUpViewVisible = false
+                                    modelName = ""
+                                }
+                                popUpOffset = 0
+                            }
+                        )
+                }
+                else if selectedTab == 6{
+                    KemonoSearch()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .offset(y: popUpOffset)
+                        .gesture(
+                            DragGesture()
+                            .onChanged { gesture in
+                                popUpOffset = gesture.translation.height
+                            }
+                            .onEnded { gesture in
+                                if gesture.translation.height > popUpThreshold {
+                                    isPopUpViewVisible = false
+                                    modelName = ""
+                                }
+                                popUpOffset = 0
+                            }
+                        )
+                }
             }
         }
         .onOpenURL {inputURL in
@@ -107,6 +143,46 @@ struct ContentView: View {
                 selectedTab = 4
                 isPopUpViewVisible = true
             }
+        }
+        .onAppear {
+            let coomerCreators = URL(string: "https://coomer.party/api/creators")!
+            let coomerTask = URLSession.shared.dataTask(with: coomerCreators) { (data, response, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                if let coomerData = data {
+                    guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+                        print("Unable to access documents directory")
+                        return
+                    }
+                    let fileURL = documentsDirectory.appendingPathComponent("creators.json")
+                    do {
+                        try coomerData.write(to: fileURL)
+                    } catch {
+                        print("Error saving JSON document: \(error)")
+                    }
+                }
+            }
+            coomerTask.resume()
+            let kemonoFurries = URL(string: "https://kemono.party/api/creators")!
+            let kemonoTask = URLSession.shared.dataTask(with: kemonoFurries) { (data, response, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                if let kemonoData = data {
+                    guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+                        print("Unable to access documents directory")
+                        return
+                    }
+                    let fileURL = documentsDirectory.appendingPathComponent("furries.json")
+                    do {
+                        try kemonoData.write(to: fileURL)
+                    } catch {
+                        print("Error saving JSON document: \(error)")
+                    }
+                }
+            }
+            kemonoTask.resume()
         }
     }
 }

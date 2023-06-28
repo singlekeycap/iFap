@@ -114,7 +114,7 @@ struct FapelloSearch: View {
                                         .blur(radius:7, opaque:true)
                                     Color.black.opacity(0.5)
                                 }
-                                .frame(height:100)
+                                .frame(width: UIScreen.main.bounds.width*9/10, height:100)
                                 .cornerRadius(10)
                                 .padding([.vertical], 3)
                                 
@@ -141,7 +141,7 @@ struct FapelloSearch: View {
                 }
                 .padding([.top, .horizontal])
             }
-            .navigationBarTitle(Text("Search"), displayMode: .inline)
+            .navigationBarTitle(Text("Fapello"), displayMode: .inline)
         }
     }
 }

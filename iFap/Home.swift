@@ -32,6 +32,28 @@ struct Home: View {
                 }
                 .padding([.top,.bottom], 5)
                 Button(action: {
+                    homeTab = 5
+                    popupVisible = true
+                }) {
+                    Text("Coomer")
+                        .frame(width: 100, height: 40)
+                        .foregroundColor(Color.white)
+                        .background(Color.accentColor)
+                        .cornerRadius(10)
+                }
+                .padding([.top,.bottom], 5)
+                Button(action: {
+                    homeTab = 6
+                    popupVisible = true
+                }) {
+                    Text("Kemono")
+                        .frame(width: 100, height: 40)
+                        .foregroundColor(Color.white)
+                        .background(Color.accentColor)
+                        .cornerRadius(10)
+                }
+                .padding([.top,.bottom], 5)
+                Button(action: {
                     homeTab = 4
                     popupVisible = true
                 }) {
