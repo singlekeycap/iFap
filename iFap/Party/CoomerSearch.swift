@@ -1,17 +1,17 @@
 //
-//  KemonoSearch.swift
+//  CoomerSearch.swift
 //  iFap
 //
-//  Created by Dre Dall'Ara on 6/27/23.
+//  Created by Dre Dall'Ara on 6/25/23.
 //
 
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct KemonoSearch: View {
+struct CoomerSearch: View {
     @State var searchText = ""
     @State var showCancelButton: Bool = false
-    @State var furryArray: Array<Creator> = []
+    @State var creatorArray: Array<Creator> = []
     @State var searchedArray: Array<Creator> = []
     
     var body: some View {
@@ -24,7 +24,7 @@ struct KemonoSearch: View {
                         TextField("Search", text: $searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
                         }, onCommit: {
-                            searchedArray = getCreatorSearch(creatorName: searchText, creatorArray: furryArray)
+                            searchedArray = getCreatorSearch(creatorName: searchText, creatorArray: creatorArray)
                         })
                         .autocapitalization(.none)
                         .autocorrectionDisabled(true)
@@ -38,12 +38,12 @@ struct KemonoSearch: View {
                 }
                 .padding()
                 ScrollView {
-                    ForEach(searchedArray, id: \.id) { furry in
-                        NavigationLink(destination: KemonoFurry(selectedFurry: furry)
+                    ForEach(searchedArray, id: \.id) { creator in
+                        NavigationLink(destination: CreatorView(selectedCreator: creator, furry: false)
                             .navigationBarTitle("Posts", displayMode: .inline)) {
                             ZStack {
                                 ZStack {
-                                    WebImage(url: URL(string:"https://img.kemono.party/banners/\(furry.service)/\(furry.id)"))
+                                    WebImage(url: URL(string:"https://img.coomer.party/banners/\(creator.service)/\(creator.id)"))
                                         .resizable()
                                         .placeholder(content: {Color.gray})
                                         .scaledToFill()
@@ -55,7 +55,7 @@ struct KemonoSearch: View {
                                 .padding([.vertical], 3)
                                 
                                 HStack {
-                                    WebImage(url: URL(string:"https://img.kemono.party/icons/\(furry.service)/\(furry.id)"))
+                                    WebImage(url: URL(string:"https://img.coomer.party/icons/\(creator.service)/\(creator.id)"))
                                         .resizable()
                                         .placeholder(content: {Color.gray})
                                         .indicator(.activity)
@@ -63,9 +63,9 @@ struct KemonoSearch: View {
                                         .frame(width: 60, height:60)
                                         .cornerRadius(30)
                                     VStack {
-                                        Text(furry.name)
+                                        Text(creator.name)
                                             .foregroundColor(Color.white)
-                                        Text("\(String(furry.favoriteCount)) favorites | \(furry.service)")
+                                        Text("\(String(creator.favoriteCount)) favorites | \(creator.service)")
                                             .foregroundColor(Color.white)
                                     }
                                     .frame(width:UIScreen.main.bounds.width / 2)
@@ -77,11 +77,11 @@ struct KemonoSearch: View {
                 }
                 .padding([.top, .horizontal])
             }
-            .navigationBarTitle(Text("Kemono.party"), displayMode: .inline)
+            .navigationBarTitle(Text("Coomer.party"), displayMode: .inline)
         }
         .onAppear {
-            iterateThroughCreators(service: "kemono", completion: { loadedArray in
-                furryArray = loadedArray
+            iterateThroughCreators(service: "coomer", completion: { loadedArray in
+                creatorArray = loadedArray
             })
         }
     }

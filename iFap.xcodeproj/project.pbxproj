@@ -11,11 +11,11 @@
 		313BB9802A42ABAC00B3B545 /* FapelloModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313BB97F2A42ABAC00B3B545 /* FapelloModel.swift */; };
 		314C9E782A465408008ED5D7 /* FapelloImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C9E772A465408008ED5D7 /* FapelloImage.swift */; };
 		3177A4322A425EE70083BC51 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3177A4312A425EE70083BC51 /* SDWebImageSwiftUI */; };
+		317F941E2A523AD00053BDF3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F941D2A523AD00053BDF3 /* PostView.swift */; };
+		317F94202A523AE50053BDF3 /* CreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F941F2A523AE50053BDF3 /* CreatorView.swift */; };
 		31D6CCEE2A4917B0009441A7 /* CoomerSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */; };
 		31D6CCF12A4A89F2009441A7 /* SION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCF02A4A89F2009441A7 /* SION.swift */; };
-		31D6CCF32A4A8F6F009441A7 /* CoomerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCF22A4A8F6F009441A7 /* CoomerCreator.swift */; };
 		31D6CCF62A4B63CD009441A7 /* KemonoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCF52A4B63CD009441A7 /* KemonoSearch.swift */; };
-		31D6CCF82A4B646A009441A7 /* KemonoFurry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCF72A4B646A009441A7 /* KemonoFurry.swift */; };
 		31D6CCFB2A4BC4E3009441A7 /* PartyBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCFA2A4BC4E3009441A7 /* PartyBackend.swift */; };
 		31DEC38B29EA4BBC00B12906 /* iFapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC38A29EA4BBC00B12906 /* iFapApp.swift */; };
 		31DEC38D29EA4BBC00B12906 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC38C29EA4BBC00B12906 /* ContentView.swift */; };
@@ -32,11 +32,11 @@
 /* Begin PBXFileReference section */
 		313BB97F2A42ABAC00B3B545 /* FapelloModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FapelloModel.swift; sourceTree = "<group>"; };
 		314C9E772A465408008ED5D7 /* FapelloImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FapelloImage.swift; sourceTree = "<group>"; };
+		317F941D2A523AD00053BDF3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		317F941F2A523AE50053BDF3 /* CreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorView.swift; sourceTree = "<group>"; };
 		31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoomerSearch.swift; sourceTree = "<group>"; };
 		31D6CCF02A4A89F2009441A7 /* SION.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SION.swift; sourceTree = "<group>"; };
-		31D6CCF22A4A8F6F009441A7 /* CoomerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoomerCreator.swift; sourceTree = "<group>"; };
 		31D6CCF52A4B63CD009441A7 /* KemonoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KemonoSearch.swift; sourceTree = "<group>"; };
-		31D6CCF72A4B646A009441A7 /* KemonoFurry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KemonoFurry.swift; sourceTree = "<group>"; };
 		31D6CCFA2A4BC4E3009441A7 /* PartyBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyBackend.swift; sourceTree = "<group>"; };
 		31D785262A47A2A400A79333 /* iFap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iFap.entitlements; sourceTree = "<group>"; };
 		31DEC38729EA4BBC00B12906 /* iFap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,15 +76,6 @@
 			path = Fapello;
 			sourceTree = "<group>";
 		};
-		31D6CCEC2A49179D009441A7 /* Coomer */ = {
-			isa = PBXGroup;
-			children = (
-				31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */,
-				31D6CCF22A4A8F6F009441A7 /* CoomerCreator.swift */,
-			);
-			path = Coomer;
-			sourceTree = "<group>";
-		};
 		31D6CCEF2A4A89DC009441A7 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,21 +85,14 @@
 			path = Backend;
 			sourceTree = "<group>";
 		};
-		31D6CCF42A4B63A8009441A7 /* Kemono */ = {
-			isa = PBXGroup;
-			children = (
-				31D6CCF52A4B63CD009441A7 /* KemonoSearch.swift */,
-				31D6CCF72A4B646A009441A7 /* KemonoFurry.swift */,
-			);
-			path = Kemono;
-			sourceTree = "<group>";
-		};
 		31D6CCF92A4BC43C009441A7 /* Party */ = {
 			isa = PBXGroup;
 			children = (
 				31D6CCFA2A4BC4E3009441A7 /* PartyBackend.swift */,
-				31D6CCF42A4B63A8009441A7 /* Kemono */,
-				31D6CCEC2A49179D009441A7 /* Coomer */,
+				317F941D2A523AD00053BDF3 /* PostView.swift */,
+				317F941F2A523AE50053BDF3 /* CreatorView.swift */,
+				31D6CCF52A4B63CD009441A7 /* KemonoSearch.swift */,
+				31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */,
 			);
 			path = Party;
 			sourceTree = "<group>";
@@ -244,18 +228,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DEC38D29EA4BBC00B12906 /* ContentView.swift in Sources */,
-				31D6CCF32A4A8F6F009441A7 /* CoomerCreator.swift in Sources */,
 				31DEC39929EB23DA00B12906 /* Home.swift in Sources */,
 				31D6CCF12A4A89F2009441A7 /* SION.swift in Sources */,
 				31DEC38B29EA4BBC00B12906 /* iFapApp.swift in Sources */,
+				317F94202A523AE50053BDF3 /* CreatorView.swift in Sources */,
 				31D6CCFB2A4BC4E3009441A7 /* PartyBackend.swift in Sources */,
 				31DEC39E29EB4CCA00B12906 /* WebViewModel.swift in Sources */,
 				31DEC3A029EB4D0000B12906 /* Fansly.swift in Sources */,
 				31DEC3A229EB75D100B12906 /* FapelloSearch.swift in Sources */,
+				317F941E2A523AD00053BDF3 /* PostView.swift in Sources */,
 				31D6CCF62A4B63CD009441A7 /* KemonoSearch.swift in Sources */,
 				313BB9802A42ABAC00B3B545 /* FapelloModel.swift in Sources */,
 				31DEC3A429EB75D900B12906 /* PornHub.swift in Sources */,
-				31D6CCF82A4B646A009441A7 /* KemonoFurry.swift in Sources */,
 				31DEC39B29EB3E5300B12906 /* OnlyFans.swift in Sources */,
 				31D6CCEE2A4917B0009441A7 /* CoomerSearch.swift in Sources */,
 				314C9E782A465408008ED5D7 /* FapelloImage.swift in Sources */,

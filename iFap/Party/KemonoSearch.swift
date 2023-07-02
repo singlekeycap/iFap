@@ -1,17 +1,17 @@
 //
-//  CoomerSearch.swift
+//  KemonoSearch.swift
 //  iFap
 //
-//  Created by Dre Dall'Ara on 6/25/23.
+//  Created by Dre Dall'Ara on 6/27/23.
 //
 
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct CoomerSearch: View {
+struct KemonoSearch: View {
     @State var searchText = ""
     @State var showCancelButton: Bool = false
-    @State var creatorArray: Array<Creator> = []
+    @State var furryArray: Array<Creator> = []
     @State var searchedArray: Array<Creator> = []
     
     var body: some View {
@@ -24,7 +24,7 @@ struct CoomerSearch: View {
                         TextField("Search", text: $searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
                         }, onCommit: {
-                            searchedArray = getCreatorSearch(creatorName: searchText, creatorArray: creatorArray)
+                            searchedArray = getCreatorSearch(creatorName: searchText, creatorArray: furryArray)
                         })
                         .autocapitalization(.none)
                         .autocorrectionDisabled(true)
@@ -39,11 +39,11 @@ struct CoomerSearch: View {
                 .padding()
                 ScrollView {
                     ForEach(searchedArray, id: \.id) { creator in
-                        NavigationLink(destination: CoomerCreator(selectedCreator: creator)
+                        NavigationLink(destination: CreatorView(selectedCreator: creator, furry: true)
                             .navigationBarTitle("Posts", displayMode: .inline)) {
                             ZStack {
                                 ZStack {
-                                    WebImage(url: URL(string:"https://img.coomer.party/banners/\(creator.service)/\(creator.id)"))
+                                    WebImage(url: URL(string:"https://img.kemono.party/banners/\(creator.service)/\(creator.id)"))
                                         .resizable()
                                         .placeholder(content: {Color.gray})
                                         .scaledToFill()
@@ -55,7 +55,7 @@ struct CoomerSearch: View {
                                 .padding([.vertical], 3)
                                 
                                 HStack {
-                                    WebImage(url: URL(string:"https://img.coomer.party/icons/\(creator.service)/\(creator.id)"))
+                                    WebImage(url: URL(string:"https://img.kemono.party/icons/\(creator.service)/\(creator.id)"))
                                         .resizable()
                                         .placeholder(content: {Color.gray})
                                         .indicator(.activity)
@@ -77,11 +77,11 @@ struct CoomerSearch: View {
                 }
                 .padding([.top, .horizontal])
             }
-            .navigationBarTitle(Text("Coomer.party"), displayMode: .inline)
+            .navigationBarTitle(Text("Kemono.party"), displayMode: .inline)
         }
         .onAppear {
-            iterateThroughCreators(service: "coomer", completion: { loadedArray in
-                creatorArray = loadedArray
+            iterateThroughCreators(service: "kemono", completion: { loadedArray in
+                furryArray = loadedArray
             })
         }
     }

@@ -12,10 +12,12 @@ struct ContentView: View {
     @State var modelName = ""
     @State var isPopUpViewVisible = false
     @State var popUpOffset: CGFloat = 0
+    @State var messageArray = ["With ❤️ by SingleKeycap", "With 💦 by SingleKeycap", "Better than Cl1max 😉", "https://youtu.be/dQw4w9WgXcQ", "Made in the USA 🦅🇺🇸", "Made in Mexico 🌮🇲🇽"]
     
     var body: some View {
+        let randomIndex = Int(arc4random_uniform(UInt32(messageArray.count)))
         ZStack {
-            Home(homeTab: $selectedTab, popupVisible: $isPopUpViewVisible)
+            Home(homeTab: $selectedTab, popupVisible: $isPopUpViewVisible, captionMessage: messageArray[randomIndex])
             if isPopUpViewVisible {
                 let popUpThreshold: CGFloat = 100
                 if selectedTab == 1 {
@@ -25,7 +27,9 @@ struct ContentView: View {
                         .gesture(
                             DragGesture()
                             .onChanged { gesture in
-                                popUpOffset = gesture.translation.height
+                                if gesture.translation.height > 0 {
+                                    popUpOffset = gesture.translation.height
+                                }
                             }
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
@@ -42,7 +46,9 @@ struct ContentView: View {
                         .gesture(
                             DragGesture()
                             .onChanged { gesture in
-                                popUpOffset = gesture.translation.height
+                                if gesture.translation.height > 0 {
+                                    popUpOffset = gesture.translation.height
+                                }
                             }
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
@@ -59,7 +65,9 @@ struct ContentView: View {
                         .gesture(
                             DragGesture()
                             .onChanged { gesture in
-                                popUpOffset = gesture.translation.height
+                                if gesture.translation.height > 0 {
+                                    popUpOffset = gesture.translation.height
+                                }
                             }
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
@@ -76,7 +84,9 @@ struct ContentView: View {
                         .gesture(
                             DragGesture()
                             .onChanged { gesture in
-                                popUpOffset = gesture.translation.height
+                                if gesture.translation.height > 0 {
+                                    popUpOffset = gesture.translation.height
+                                }
                             }
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
@@ -94,7 +104,9 @@ struct ContentView: View {
                         .gesture(
                             DragGesture()
                             .onChanged { gesture in
-                                popUpOffset = gesture.translation.height
+                                if gesture.translation.height > 0 {
+                                    popUpOffset = gesture.translation.height
+                                }
                             }
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {
@@ -112,7 +124,9 @@ struct ContentView: View {
                         .gesture(
                             DragGesture()
                             .onChanged { gesture in
-                                popUpOffset = gesture.translation.height
+                                if gesture.translation.height > 0 {
+                                    popUpOffset = gesture.translation.height
+                                }
                             }
                             .onEnded { gesture in
                                 if gesture.translation.height > popUpThreshold {

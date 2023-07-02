@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     @Binding var homeTab: Int
     @Binding var popupVisible: Bool
+    @State var captionMessage: String
     
     var body: some View {
         ZStack {
@@ -17,9 +18,18 @@ struct Home: View {
                 Text("Welcome to iFap!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                Text("With ❤️ by SingleKeycap")
-                    .font(.footnote)
-                    .padding(.bottom)
+                if captionMessage == "https://youtu.be/dQw4w9WgXcQ" {
+                    Link(destination: URL(string: captionMessage)!) {
+                        Text("Click here 🥴")
+                            .font(.footnote)
+                            .padding(.bottom)
+                    }
+                } else {
+                    Text(captionMessage)
+                        .font(.footnote)
+                        .padding(.bottom)
+                }
+                
                 Button(action: {
                     homeTab = 3
                     popupVisible = true
