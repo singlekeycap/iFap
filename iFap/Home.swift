@@ -11,6 +11,8 @@ struct Home: View {
     @Binding var homeTab: Int
     @Binding var popupVisible: Bool
     @State var captionMessage: String
+    @Binding var coomerDisabled: Bool
+    @Binding var kemonoDisabled: Bool
     
     var body: some View {
         ZStack {
@@ -52,6 +54,7 @@ struct Home: View {
                         .cornerRadius(10)
                 }
                 .padding([.top,.bottom], 5)
+                .disabled(coomerDisabled)
                 Button(action: {
                     homeTab = 6
                     popupVisible = true
@@ -63,6 +66,7 @@ struct Home: View {
                         .cornerRadius(10)
                 }
                 .padding([.top,.bottom], 5)
+                .disabled(kemonoDisabled)
                 Button(action: {
                     homeTab = 4
                     popupVisible = true
