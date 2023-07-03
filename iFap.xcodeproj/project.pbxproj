@@ -13,6 +13,7 @@
 		3177A4322A425EE70083BC51 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3177A4312A425EE70083BC51 /* SDWebImageSwiftUI */; };
 		317F941E2A523AD00053BDF3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F941D2A523AD00053BDF3 /* PostView.swift */; };
 		317F94202A523AE50053BDF3 /* CreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F941F2A523AE50053BDF3 /* CreatorView.swift */; };
+		317F94222A52844C0053BDF3 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F94212A52844C0053BDF3 /* WebView.swift */; };
 		31D6CCEE2A4917B0009441A7 /* CoomerSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */; };
 		31D6CCF12A4A89F2009441A7 /* SION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCF02A4A89F2009441A7 /* SION.swift */; };
 		31D6CCF62A4B63CD009441A7 /* KemonoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCF52A4B63CD009441A7 /* KemonoSearch.swift */; };
@@ -22,11 +23,8 @@
 		31DEC38F29EA4BBD00B12906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DEC38E29EA4BBD00B12906 /* Assets.xcassets */; };
 		31DEC39229EA4BBD00B12906 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DEC39129EA4BBD00B12906 /* Preview Assets.xcassets */; };
 		31DEC39929EB23DA00B12906 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC39829EB23DA00B12906 /* Home.swift */; };
-		31DEC39B29EB3E5300B12906 /* OnlyFans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC39A29EB3E5300B12906 /* OnlyFans.swift */; };
 		31DEC39E29EB4CCA00B12906 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC39D29EB4CCA00B12906 /* WebViewModel.swift */; };
-		31DEC3A029EB4D0000B12906 /* Fansly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC39F29EB4D0000B12906 /* Fansly.swift */; };
 		31DEC3A229EB75D100B12906 /* FapelloSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC3A129EB75D100B12906 /* FapelloSearch.swift */; };
-		31DEC3A429EB75D900B12906 /* PornHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DEC3A329EB75D800B12906 /* PornHub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +32,7 @@
 		314C9E772A465408008ED5D7 /* FapelloImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FapelloImage.swift; sourceTree = "<group>"; };
 		317F941D2A523AD00053BDF3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		317F941F2A523AE50053BDF3 /* CreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorView.swift; sourceTree = "<group>"; };
+		317F94212A52844C0053BDF3 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoomerSearch.swift; sourceTree = "<group>"; };
 		31D6CCF02A4A89F2009441A7 /* SION.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SION.swift; sourceTree = "<group>"; };
 		31D6CCF52A4B63CD009441A7 /* KemonoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KemonoSearch.swift; sourceTree = "<group>"; };
@@ -45,12 +44,9 @@
 		31DEC38E29EA4BBD00B12906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31DEC39129EA4BBD00B12906 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31DEC39829EB23DA00B12906 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		31DEC39A29EB3E5300B12906 /* OnlyFans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyFans.swift; sourceTree = "<group>"; };
 		31DEC39C29EB3F0600B12906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		31DEC39D29EB4CCA00B12906 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
-		31DEC39F29EB4D0000B12906 /* Fansly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fansly.swift; sourceTree = "<group>"; };
 		31DEC3A129EB75D100B12906 /* FapelloSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FapelloSearch.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		31DEC3A329EB75D800B12906 /* PornHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PornHub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,16 +93,6 @@
 			path = Party;
 			sourceTree = "<group>";
 		};
-		31D6CCFC2A4BC596009441A7 /* WebViews */ = {
-			isa = PBXGroup;
-			children = (
-				31DEC39A29EB3E5300B12906 /* OnlyFans.swift */,
-				31DEC39F29EB4D0000B12906 /* Fansly.swift */,
-				31DEC3A329EB75D800B12906 /* PornHub.swift */,
-			);
-			path = WebViews;
-			sourceTree = "<group>";
-		};
 		31DEC37E29EA4BBC00B12906 = {
 			isa = PBXGroup;
 			children = (
@@ -131,10 +117,10 @@
 				31DEC38C29EA4BBC00B12906 /* ContentView.swift */,
 				31DEC38A29EA4BBC00B12906 /* iFapApp.swift */,
 				31DEC39829EB23DA00B12906 /* Home.swift */,
+				317F94212A52844C0053BDF3 /* WebView.swift */,
 				31D6CCEF2A4A89DC009441A7 /* Backend */,
 				313BB97C2A42A99900B3B545 /* Fapello */,
 				31D6CCF92A4BC43C009441A7 /* Party */,
-				31D6CCFC2A4BC596009441A7 /* WebViews */,
 				31DEC38E29EA4BBD00B12906 /* Assets.xcassets */,
 				31DEC39029EA4BBD00B12906 /* Preview Content */,
 			);
@@ -234,13 +220,11 @@
 				317F94202A523AE50053BDF3 /* CreatorView.swift in Sources */,
 				31D6CCFB2A4BC4E3009441A7 /* PartyBackend.swift in Sources */,
 				31DEC39E29EB4CCA00B12906 /* WebViewModel.swift in Sources */,
-				31DEC3A029EB4D0000B12906 /* Fansly.swift in Sources */,
 				31DEC3A229EB75D100B12906 /* FapelloSearch.swift in Sources */,
 				317F941E2A523AD00053BDF3 /* PostView.swift in Sources */,
 				31D6CCF62A4B63CD009441A7 /* KemonoSearch.swift in Sources */,
+				317F94222A52844C0053BDF3 /* WebView.swift in Sources */,
 				313BB9802A42ABAC00B3B545 /* FapelloModel.swift in Sources */,
-				31DEC3A429EB75D900B12906 /* PornHub.swift in Sources */,
-				31DEC39B29EB3E5300B12906 /* OnlyFans.swift in Sources */,
 				31D6CCEE2A4917B0009441A7 /* CoomerSearch.swift in Sources */,
 				314C9E782A465408008ED5D7 /* FapelloImage.swift in Sources */,
 			);

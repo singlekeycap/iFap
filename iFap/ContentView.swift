@@ -21,7 +21,7 @@ struct ContentView: View {
             if isPopUpViewVisible {
                 let popUpThreshold: CGFloat = 100
                 if selectedTab == 1 {
-                    OnlyFans(modelName: modelName)
+                    WebView(url: "https://onlyfans.com/\(modelName)")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .offset(y: popUpOffset)
                         .gesture(
@@ -40,7 +40,7 @@ struct ContentView: View {
                             }
                         )
                 } else if selectedTab == 2 {
-                    Fansly(modelName: modelName)
+                    WebView(url: "https://fansly.com/\(modelName)")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .offset(y: popUpOffset)
                         .gesture(
@@ -78,7 +78,7 @@ struct ContentView: View {
                             }
                         )
                 } else if selectedTab == 4{
-                    PornHub(modelName: modelName)
+                    WebView(url: "https://www.pornhub.com/\(modelName)")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .offset(y: popUpOffset)
                         .gesture(
@@ -153,7 +153,7 @@ struct ContentView: View {
                 isPopUpViewVisible = true
             } else if modelURL.hasPrefix("pornhub://") {
                 modelURL = String(modelURL.dropFirst(10))
-                modelName = modelURL
+                modelName = "view_video.php?viewkey=" + modelURL
                 selectedTab = 4
                 isPopUpViewVisible = true
             }

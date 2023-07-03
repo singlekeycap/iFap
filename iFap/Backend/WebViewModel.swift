@@ -23,7 +23,7 @@ class WebViewModel: ObservableObject {
     }
 }
 
-struct WebView: UIViewRepresentable {
+struct WebViewWrapper: UIViewRepresentable {
     typealias UIViewType = WKWebView
 
     let webView: WKWebView
