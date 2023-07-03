@@ -13,27 +13,23 @@ struct PostView: View {
     @State var furry : Bool
     @State var showDownloadAlert = false
     @State var downloadURL = URL(string: "https://coomer.party/")!
+    @State var isPresented = true
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 if let content = selectedPost.content {
                     Text(content)
-                        .padding([.horizontal, .top])
                 }
                 if let postPath = selectedPost.file.path {
                     if (postPath.contains("mkv") || postPath.contains("mov") || postPath.contains("mp4") || postPath.contains("m4v")) {
                         VideoPlayerWrapper(videoURL: URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)")!)
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: UIScreen.main.bounds.width*9/10)
-                            .padding([.horizontal])
                     } else {
                         WebImage(url: URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)"))
                             .resizable()
                             .indicator(.activity)
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: UIScreen.main.bounds.width*9/10)
-                            .padding([.horizontal])
                             .onLongPressGesture {
                                 downloadURL = URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)")!
                                 showDownloadAlert = true
@@ -46,15 +42,11 @@ struct PostView: View {
                             if (postPath.contains("mkv") || postPath.contains("mov") || postPath.contains("mp4") || postPath.contains("m4v")) {
                                 VideoPlayerWrapper(videoURL: URL(string: "https://coomer.party\(postPath)")!)
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: UIScreen.main.bounds.width*9/10)
-                                    .padding([.horizontal])
                             } else {
                                 WebImage(url: URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)"))
                                     .resizable()
                                     .indicator(.activity)
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: UIScreen.main.bounds.width*9/10)
-                                    .padding([.horizontal])
                                     .onLongPressGesture {
                                         downloadURL = URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)")!
                                         showDownloadAlert = true
@@ -65,6 +57,7 @@ struct PostView: View {
                 }
             }
         }
+        .padding([.top, .horizontal])
         .alert(isPresented: $showDownloadAlert) {
             Alert(title: Text("Download Image?"), primaryButton: .default(Text("Yes"), action: {
                 SDWebImageManager.shared.loadImage(with: downloadURL, options: .highPriority, progress: nil) { image, _, _, _, _, _ in

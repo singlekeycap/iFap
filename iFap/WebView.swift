@@ -7,10 +7,38 @@
 
 import SwiftUI
 
-struct WebView: View {
-    @State var url : String
+struct WebView: View {    
+    @StateObject private var model: WebViewModel
+    
+    init(url: String) {
+        _model = StateObject(wrappedValue: WebViewModel(urlString: url))
+    }
+    
     var body: some View {
-        let model = WebViewModel(urlString: url)
-        WebViewWrapper(webView: model.webView)
+        ZStack{
+            Rectangle()
+                .foregroundColor(Color.black)
+            VStack {
+                WebViewWrapper(webView: model.webView)
+                HStack {
+                    Spacer()
+                    Button(action: { model.webView.goBack() }) {
+                        Image(systemName: "chevron.backward")
+                            .foregroundColor(.accentColor)
+                    }
+                    .padding(.vertical)
+                    .disabled(!model.webView.canGoBack)
+                    Spacer()
+                    Button(action: { model.webView.goForward() }) {
+                        Image(systemName: "chevron.forward")
+                            .foregroundColor(.accentColor)
+                    }
+                    .padding(.vertical)
+                    .disabled(!model.webView.canGoForward)
+                    Spacer()
+                }
+            }
+        }
+        .preferredColorScheme(.dark)
     }
 }

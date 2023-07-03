@@ -40,6 +40,7 @@ struct VideoPlayerWrapper: UIViewControllerRepresentable {
         controller.player = AVPlayer(url: videoURL)
         controller.exitsFullScreenWhenPlaybackEnds = true
         controller.allowsPictureInPicturePlayback = true
+        controller.canStartPictureInPictureAutomaticallyFromInline = true
         controller.player?.allowsExternalPlayback = true
         return controller
     }
