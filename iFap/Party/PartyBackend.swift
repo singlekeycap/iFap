@@ -37,6 +37,8 @@ struct VideoPlayerWrapper: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let controller = AVPlayerViewController()
+        let audioSession = AVAudioSession.sharedInstance()
+        try? audioSession.setCategory(.playback)
         controller.player = AVPlayer(url: videoURL)
         controller.exitsFullScreenWhenPlaybackEnds = true
         controller.allowsPictureInPicturePlayback = true

@@ -36,7 +36,7 @@
 		</dict>
 	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>iFap needs this permission to save photos from the Fapello section of the app</string>
+	<string>iFap needs this permission to save photos from various sections of the app</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

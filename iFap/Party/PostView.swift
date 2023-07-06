@@ -16,9 +16,10 @@ struct PostView: View {
     @State var isPresented = true
     
     var body: some View {
+        let showPartyContent = UserDefaults.standard.bool(forKey: "showPartyContent")
         ScrollView {
             VStack(alignment: .leading) {
-                if let content = selectedPost.content {
+                if showPartyContent, let content = selectedPost.content {
                     Text(content)
                 }
                 if let postPath = selectedPost.file.path {

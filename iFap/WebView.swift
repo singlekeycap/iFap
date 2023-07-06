@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct WebView: View {    
     @StateObject private var model: WebViewModel
@@ -15,11 +16,15 @@ struct WebView: View {
     }
     
     var body: some View {
-        ZStack{
-            Rectangle()
-                .foregroundColor(Color.black)
-            VStack {
-                WebViewWrapper(webView: model.webView)
+        let showNavBar = UserDefaults.standard.bool(forKey: "showNavBar")
+        VStack {
+            WebViewWrapper(webView: model.webView)
+                .onAppear {
+                    let session = AVAudioSession.sharedInstance()
+                    try? session.setCategory(.playback)
+                    try? session.setActive(true)
+                }
+            if showNavBar {
                 HStack {
                     Spacer()
                     Button(action: { model.webView.goBack() }) {
@@ -37,6 +42,7 @@ struct WebView: View {
                     .disabled(!model.webView.canGoForward)
                     Spacer()
                 }
+                .background(Color.black)
             }
         }
         .preferredColorScheme(.dark)
