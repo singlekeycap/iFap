@@ -10,8 +10,8 @@ import SwiftSoup
 import SDWebImageSwiftUI
 import SDWebImage
 
-func getImageArray(modelURL: URL, imageNum: Int, completion: @escaping (URL) -> Void) {
-    let imageURLWrapper = URL(string: "\(modelURL.absoluteString)\(String(imageNum))")!
+func getImageURL(username: String, imageNum: Int, completion: @escaping (URL) -> Void) {
+    let imageURLWrapper = URL(string: "https://fapello.com/\(username)/\(String(imageNum))")!
     var imageURL : URL = URL(string: "https://example.com/image.jpg")!
     let task = URLSession.shared.dataTask(with: imageURLWrapper) { (data, response, error) in
         if let error = error {
@@ -33,11 +33,12 @@ func getImageArray(modelURL: URL, imageNum: Int, completion: @escaping (URL) -> 
 
 struct FapelloImage: View {
     @State var imageNum : Int
-    @State var fapelloURL : URL
+    @State var username : String
     @State var maxCount : Int
     @State var webImageURL : URL = URL(string: "https://example.com/image.jpg")!
     
     var body: some View {
+        let _ = UserDefaults.standard.string(forKey: "fapelloChangeType")
         VStack{
             Spacer()
             HStack {
@@ -47,7 +48,7 @@ struct FapelloImage: View {
                         ProgressView()
                     }
                     .aspectRatio(contentMode: .fit)
-                    .onAppear { getImageArray(modelURL: fapelloURL, imageNum: imageNum) {imageURL in
+                    .onAppear { getImageURL(username: username, imageNum: imageNum) {imageURL in
                             webImageURL = imageURL
                         }
                     }
@@ -56,9 +57,9 @@ struct FapelloImage: View {
             Spacer()
             HStack {
                 Button(action: {
-                    if imageNum != maxCount {
-                        imageNum += 1
-                        getImageArray(modelURL: fapelloURL, imageNum: imageNum) {imageURL in
+                    if imageNum != 1 {
+                        imageNum -= 1
+                        getImageURL(username: username, imageNum: imageNum) {imageURL in
                             webImageURL = imageURL
                         }
                     }
@@ -90,9 +91,9 @@ struct FapelloImage: View {
                 }
                 .padding()
                 Button(action: {
-                    if imageNum != 1 {
-                        imageNum -= 1
-                        getImageArray(modelURL: fapelloURL, imageNum: imageNum) {imageURL in
+                    if imageNum != maxCount {
+                        imageNum += 1
+                        getImageURL(username: username, imageNum: imageNum) {imageURL in
                             webImageURL = imageURL
                         }
                     }

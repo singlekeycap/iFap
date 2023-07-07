@@ -31,7 +31,7 @@ struct ContentView: View {
                             .foregroundColor(.gray)
                             .frame(width: 40, height: 5)
                     }
-                    .padding(.bottom, -10)
+                    .padding(.vertical, -10)
                     .gesture(
                         DragGesture(minimumDistance: 1.0, coordinateSpace: .global)
                             .onChanged { gesture in
