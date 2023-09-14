@@ -32,26 +32,6 @@ struct Post {
     var title : String?
 }
 
-struct VideoPlayerWrapper: UIViewControllerRepresentable {
-    var videoURL: URL
-    
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
-        let controller = AVPlayerViewController()
-        let audioSession = AVAudioSession.sharedInstance()
-        try? audioSession.setCategory(.playback)
-        controller.player = AVPlayer(url: videoURL)
-        controller.exitsFullScreenWhenPlaybackEnds = true
-        controller.allowsPictureInPicturePlayback = true
-        controller.canStartPictureInPictureAutomaticallyFromInline = true
-        controller.player?.allowsExternalPlayback = true
-        return controller
-    }
-    
-    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
-        // No updates needed
-    }
-}
-
 func iterateThroughCreators(service: String, completion: @escaping ([Creator]) -> Void) {
     Task {
         var creatorArray : Array<Creator> = []

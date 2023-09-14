@@ -10,57 +10,62 @@ import SwiftSoup
 import SDWebImageSwiftUI
 import SDWebImage
 
-func getImageURL(username: String, imageNum: Int, completion: @escaping (URL) -> Void) {
-    let imageURLWrapper = URL(string: "https://fapello.com/\(username)/\(String(imageNum))")!
-    var imageURL : URL = URL(string: "https://example.com/image.jpg")!
-    let task = URLSession.shared.dataTask(with: imageURLWrapper) { (data, response, error) in
-        if let error = error {
-            print("Error accessing URL: \(error)")
-        }
-        if let data = data, let html = String(data: data, encoding: .utf8) {
-            do {
-                let doc : Document = try SwiftSoup.parse(html)
-                let realImageURL : String = try doc.select("div > div > div > div > div > a > img").array()[1].attr("src")
-                imageURL = URL(string: realImageURL)!
-                completion(imageURL)
-            } catch {
-                print("Error!")
-            }
-        }
-    }
-    task.resume()
+struct FapelloPost {
+    var postURL : URL
+    var postType : String
+}
+
+func getImageURL(username: String, imageNum: Int, completion: @escaping (FapelloPost) -> Void) {
+    let url = URL(string: "https://api.keycap.one/fapello/model/\(username)/post/\(String(imageNum))")!
+    let postJSON = SION(jsonURL: url)
+    let escapingPost = FapelloPost(postURL: URL(string: postJSON["post_url"].string!)!, postType: postJSON["media_type"].string!)
+    completion(escapingPost)
 }
 
 struct FapelloImage: View {
     @State var imageNum : Int
     @State var username : String
     @State var maxCount : Int
-    @State var webImageURL : URL = URL(string: "https://example.com/image.jpg")!
+    @State var post : FapelloPost = FapelloPost(postURL: URL(string: "https://fapello.com")!, postType: "photo")
+    @State var videoURL : URL = URL(string: "https://fapello.com")!
     
     var body: some View {
         let _ = UserDefaults.standard.string(forKey: "fapelloChangeType")
         VStack{
             Spacer()
             HStack {
-                WebImage(url: webImageURL)
-                    .resizable()
-                    .placeholder {
-                        ProgressView()
-                    }
-                    .aspectRatio(contentMode: .fit)
-                    .onAppear { getImageURL(username: username, imageNum: imageNum) {imageURL in
-                            webImageURL = imageURL
+                if post.postType == "photo" {
+                    WebImage(url: post.postURL)
+                        .resizable()
+                        .placeholder {
+                            ProgressView()
                         }
+                        .aspectRatio(contentMode: .fit)
+                } else if post.postType == "video" {
+                    VideoPlayerView(videoURL: post.postURL)
+                        .aspectRatio(contentMode: .fit)
+                } else {
+                    ZStack {
+                        Color.gray
+                        Text("Post was\ndeleted!")
+                            .font(.largeTitle.bold())
+                            .foregroundColor(Color.black)
                     }
+                    .frame(height: UIScreen.main.bounds.height/2)
+                }
+            }
+            .onAppear { getImageURL(username: username, imageNum: imageNum) {newPost in
+                    post = newPost
+                }
             }
             .frame(height: UIScreen.main.bounds.height*3/4)
             Spacer()
             HStack {
                 Button(action: {
-                    if imageNum != 1 {
-                        imageNum -= 1
-                        getImageURL(username: username, imageNum: imageNum) {imageURL in
-                            webImageURL = imageURL
+                    if imageNum != maxCount {
+                        imageNum += 1
+                        getImageURL(username: username, imageNum: imageNum) {newPost in
+                            post = newPost
                         }
                     }
                 }) {
@@ -73,28 +78,30 @@ struct FapelloImage: View {
                     .cornerRadius(10)
                 }
                 .padding()
-                Button(action: {
-                    SDWebImageManager.shared.loadImage(with: webImageURL, options: .highPriority, progress: nil) { image, _, _, _, _, _ in
-                        guard let image = image else {
-                            return
+                if post.postType == "photo" {
+                    Button(action: {
+                        SDWebImageManager.shared.loadImage(with: post.postURL, options: .highPriority, progress: nil) { image, _, _, _, _, _ in
+                            guard let image = image else {
+                                return
+                            }
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                         }
-                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                    }) {
+                        ZStack{
+                            Color.accentColor
+                            Image(systemName: "square.and.arrow.down")
+                                .foregroundColor(Color.white)
+                        }
+                        .frame(width: 80, height: 40)
+                        .cornerRadius(10)
                     }
-                }) {
-                    ZStack{
-                        Color.accentColor
-                        Image(systemName: "square.and.arrow.down")
-                            .foregroundColor(Color.white)
-                    }
-                    .frame(width: 80, height: 40)
-                    .cornerRadius(10)
+                    .padding()
                 }
-                .padding()
                 Button(action: {
-                    if imageNum != maxCount {
-                        imageNum += 1
-                        getImageURL(username: username, imageNum: imageNum) {imageURL in
-                            webImageURL = imageURL
+                    if imageNum != 1 {
+                        imageNum -= 1
+                        getImageURL(username: username, imageNum: imageNum) {newPost in
+                            post = newPost
                         }
                     }
                 }) {
@@ -110,6 +117,6 @@ struct FapelloImage: View {
             }
             Spacer()
         }
-        .navigationBarTitle(Text("\(String(imageNum))/\(String(maxCount))"), displayMode: .inline)
+        .navigationBarTitle(Text("\(String(maxCount - imageNum + 1))/\(String(maxCount))"), displayMode: .inline)
     }
 }

@@ -7,24 +7,12 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
-import SwiftSoup
 import Foundation
 
-struct ModelImage {
-    var imageCount : Int
-    var contentURL : String
-    var username : String
-}
-
-// https://fapello.com/content/b/e/belle-delphine-11/7000/belle-delphine-11_6215_300px.jpg
-
-func getModelImage(urlArray : [String], username : String) -> ModelImage {
-    var split = urlArray[(urlArray.count - 1)].split(separator: "_")
+func getModelImage(urlArray : [String], username : String) -> Int {
+    let split = urlArray[0].split(separator: "_")
     let maxImageCount = Int(split[split.count - 2])!
-    split = urlArray[(urlArray.count - 1)].split(separator: "/")
-    let contentURL = split.dropLast().dropLast().joined(separator: "/")
-    let modelImage = ModelImage(imageCount: maxImageCount, contentURL: contentURL, username: username)
-    return modelImage
+    return maxImageCount
 }
 
 func createImageURLArray(username : String) -> [String] {
@@ -52,7 +40,7 @@ struct FapelloModel: View {
                     .frame(height:10)
                     LazyVGrid(columns: columns) {
                         let URLArray = createImageURLArray(username: selectedModel.username)
-                        let imageCount = getModelImage(urlArray: URLArray, username: selectedModel.username).imageCount
+                        let imageCount = getModelImage(urlArray: URLArray, username: selectedModel.username)
                         ForEach (URLArray, id: \.self) { imageURL in
                             let navImageNum = imageURL.components(separatedBy: "_")[imageURL.components(separatedBy: "_").count - 2]
                             NavigationLink(destination: FapelloImage(imageNum: Int(navImageNum)!, username: selectedModel.username, maxCount: imageCount)

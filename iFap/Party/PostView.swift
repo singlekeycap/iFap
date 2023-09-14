@@ -24,7 +24,7 @@ struct PostView: View {
                 }
                 if let postPath = selectedPost.file.path {
                     if (postPath.contains("mkv") || postPath.contains("mov") || postPath.contains("mp4") || postPath.contains("m4v")) {
-                        VideoPlayerWrapper(videoURL: URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)")!)
+                        VideoPlayerView(videoURL: URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)")!)
                             .aspectRatio(contentMode: .fit)
                     } else {
                         WebImage(url: URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)"))
@@ -41,7 +41,7 @@ struct PostView: View {
                     ForEach(selectedPost.attachments, id:\.path) { postAttachment in
                         if let postPath = postAttachment.path {
                             if (postPath.contains("mkv") || postPath.contains("mov") || postPath.contains("mp4") || postPath.contains("m4v")) {
-                                VideoPlayerWrapper(videoURL: URL(string: "https://coomer.party\(postPath)")!)
+                                VideoPlayerView(videoURL: URL(string: "https://coomer.party\(postPath)")!)
                                     .aspectRatio(contentMode: .fit)
                             } else {
                                 WebImage(url: URL(string: "https://\(furry ? "kemono" : "coomer").party\(postPath)"))

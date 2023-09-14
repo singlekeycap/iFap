@@ -14,6 +14,7 @@
 		317F941E2A523AD00053BDF3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F941D2A523AD00053BDF3 /* PostView.swift */; };
 		317F94202A523AE50053BDF3 /* CreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F941F2A523AE50053BDF3 /* CreatorView.swift */; };
 		317F94222A52844C0053BDF3 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F94212A52844C0053BDF3 /* WebView.swift */; };
+		318385612A58E0BC0004C79A /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318385602A58E0BC0004C79A /* VideoPlayer.swift */; };
 		31B042932A53B48C00FB5036 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B042922A53B48C00FB5036 /* Home.swift */; };
 		31D6CCEE2A4917B0009441A7 /* CoomerSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */; };
 		31D6CCF12A4A89F2009441A7 /* SION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D6CCF02A4A89F2009441A7 /* SION.swift */; };
@@ -34,6 +35,7 @@
 		317F941D2A523AD00053BDF3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		317F941F2A523AE50053BDF3 /* CreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorView.swift; sourceTree = "<group>"; };
 		317F94212A52844C0053BDF3 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		318385602A58E0BC0004C79A /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		31B042922A53B48C00FB5036 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		31D6CCED2A4917B0009441A7 /* CoomerSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoomerSearch.swift; sourceTree = "<group>"; };
 		31D6CCF02A4A89F2009441A7 /* SION.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SION.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				31DEC39D29EB4CCA00B12906 /* WebViewModel.swift */,
 				31D6CCF02A4A89F2009441A7 /* SION.swift */,
+				318385602A58E0BC0004C79A /* VideoPlayer.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				318385612A58E0BC0004C79A /* VideoPlayer.swift in Sources */,
 				31DEC38D29EA4BBC00B12906 /* ContentView.swift in Sources */,
 				31DEC39929EB23DA00B12906 /* Settings.swift in Sources */,
 				31D6CCF12A4A89F2009441A7 /* SION.swift in Sources */,

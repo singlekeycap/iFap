@@ -25,7 +25,7 @@ struct ContentView: View {
                     let popUpThreshold: CGFloat = 100
                     ZStack {
                         Rectangle()
-                            .frame(width: .infinity, height: 25)
+                            .frame(width: .infinity, height: 35)
                             .foregroundColor(.black)
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(.gray)
